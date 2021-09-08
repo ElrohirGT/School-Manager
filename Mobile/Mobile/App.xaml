@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Mobile.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:Mobile.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <conv:InverseBooleanConverter x:Key="InverseBoolean" />
+            <Color x:Key="AccentColor">DarkGoldenRod</Color>
+            <Color x:Key="HeadBackgroundColor">#2a2a2a</Color>
+            <Color x:Key="PageBackgroundColor">#1a1a1a</Color>
+            <Color x:Key="UnselectedTabColor">#1a1a1a</Color>
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BorderColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mobile.LogInPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Mobile.ViewModels"
+    Title="School Manager"
+    BackgroundColor="{StaticResource PageBackgroundColor}"
+    IconImageSource="icon_white"
+    Visual="Material">
+
+    <AbsoluteLayout x:DataType="local:LogInPageViewModel">
+        <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,0.6,0.5" AbsoluteLayout.LayoutFlags="All">
+            <Label
+                FontSize="30"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                Text="School Manager">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="S" TextColor="DarkGoldenrod" />
+                            <Span Text="chool " />
+                            <Span Text="M" TextColor="DarkGoldenrod" />
+                            <Span Text="anager" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Entry Placeholder="Usuario" Text="{Binding UserName, Mode=TwoWay}" />
+            <Entry
+                IsPassword="True"
+                Placeholder="Contraseña"
+                Text="{Binding Password, Mode=TwoWay}" />
+            <Button
+                BackgroundColor="DarkGoldenrod"
+                Command="{Binding LogInCommand}"
+                Text="Iniciar Sesión" />
+            <Label
+                FontSize="Subtitle"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding HasError}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="ERROR:&#x0a;" TextColor="Red" />
+                            <Span Text="{Binding Error}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

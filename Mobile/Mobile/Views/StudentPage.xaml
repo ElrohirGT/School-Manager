@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mobile.Views.StudentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Mobile.Controls"
+    xmlns:model="clr-namespace:Mobile.Models"
+    Title="School Manager"
+    IconImageSource="icon">
+    <!--  Pages can be added as references or inline  -->
+    <ContentPage.Content>
+        <controls:PageWithIndicators IsBusy="{Binding IsBusy}" IsLoading="{Binding IsLoading}">
+            <controls:PageWithIndicators.ChildContent>
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:AssignationModel">
+                            <Grid Padding="8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.ColumnSpan="4"
+                                    FontSize="Title"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Curso.Nombre}" />
+                                <Label Grid.Row="1" Grid.ColumnSpan="4">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Profesor: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding Curso.Profesor.Nombre}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="2"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="IU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIU}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="IIU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIIU}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="IIIU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIIIU}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="IVU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIVU}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <BoxView
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="4"
+                                    BackgroundColor="{StaticResource AccentColor}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </controls:PageWithIndicators.ChildContent>
+        </controls:PageWithIndicators>
+    </ContentPage.Content>
+</ContentPage>

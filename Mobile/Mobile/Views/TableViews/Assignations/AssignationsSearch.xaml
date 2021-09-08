@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mobile.Views.TableViews.Assignations.AssignationsSearch"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Mobile.Controls"
+    x:Name="Page"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
+    <ContentPage.Content>
+        <controls:PageWithIndicators IsBusy="{Binding IsBusy}" IsLoading="{Binding IsLoading}">
+            <controls:PageWithIndicators.ChildContent>
+                <Grid Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="2" />
+                        <RowDefinition Height="10*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry
+                        Grid.ColumnSpan="2"
+                        Keyboard="Numeric"
+                        Placeholder="Id: "
+                        Text="{Binding SelectedId}" />
+                    <Button
+                        Grid.Column="2"
+                        Command="{Binding SearchItemCommand}"
+                        Style="{StaticResource SecondaryButton}"
+                        Text="Buscar" />
+                    <BoxView
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="{StaticResource AccentColor}" />
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        IsVisible="{Binding HasItem, Converter={StaticResource InverseBoolean}}">
+                        <Label
+                            FontSize="Title"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="Porfavor ingresa una Id existente!"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        IsVisible="{Binding HasItem}"
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <Label
+                            FontSize="Title"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding SelectedItem.Estudiante.Nombre}" />
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Curso: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.Curso.Nombre}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Género: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.Estudiante.Sexo}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Encargado: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.Estudiante.Encargado}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Cumpleaños: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.Estudiante.FechaDeNacimiento, StringFormat='{0:dd} de {0:MMMM}'}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label
+                            FontSize="Title"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="Calificaciones"
+                            TextColor="{StaticResource AccentColor}" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="IU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.NotaIU}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="IIU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.NotaIIU}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Column="2"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="IIIU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.NotaIIIU}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Column="3"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="IVU&#x0a;" TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding SelectedItem.NotaIVU}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </controls:PageWithIndicators.ChildContent>
+        </controls:PageWithIndicators>
+    </ContentPage.Content>
+</ContentPage>

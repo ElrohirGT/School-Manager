@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mobile.Views.TableViews.Courses.CoursesSearch"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Mobile.Controls"
+    x:Name="Page"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
+    <ContentPage.Content>
+        <controls:PageWithIndicators IsBusy="{Binding IsBusy}" IsLoading="{Binding IsLoading}">
+            <controls:PageWithIndicators.ChildContent>
+                <Grid Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="2" />
+                        <RowDefinition Height="10*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry
+                        Grid.ColumnSpan="2"
+                        Keyboard="Numeric"
+                        Placeholder="Id: "
+                        Text="{Binding SelectedId}" />
+                    <Button
+                        Grid.Column="2"
+                        Command="{Binding SearchItemCommand}"
+                        Style="{StaticResource SecondaryButton}"
+                        Text="Buscar" />
+                    <BoxView
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="{StaticResource AccentColor}" />
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        IsVisible="{Binding HasItem, Converter={StaticResource InverseBoolean}}">
+                        <Label
+                            FontSize="Title"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="Porfavor ingresa una Id existente!"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        BindingContext="{Binding SelectedItem}"
+                        IsVisible="{Binding BindingContext.HasItem, Source={Reference Page}}"
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <Label
+                            FontSize="Title"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding NombreCompleto}" />
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Profesor: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding Profesor.Nombre}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Género: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding Profesor.Sexo}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Cumpleaños: " TextColor="{StaticResource AccentColor}" />
+                                        <Span Text="{Binding Profesor.FechaDeNacimiento, StringFormat='{0:dd} de {0:MMMM}'}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </controls:PageWithIndicators.ChildContent>
+        </controls:PageWithIndicators>
+    </ContentPage.Content>
+</ContentPage>

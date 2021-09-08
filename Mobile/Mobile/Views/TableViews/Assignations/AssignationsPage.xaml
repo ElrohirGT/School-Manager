@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="Mobile.Views.TableViews.AssignationsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Mobile.Views.TableViews.Assignations"
+    BarBackgroundColor="{StaticResource HeadBackgroundColor}"
+    SelectedTabColor="{StaticResource AccentColor}"
+    UnselectedTabColor="{StaticResource UnselectedTabColor}">
+    <!--  Pages can be added as references or inline  -->
+    <views:AssignationsView Title="General" />
+    <views:AssignationsReport Title="Reportes" />
+    <views:AssignationsSearch Title="Buscar" />
+</TabbedPage>

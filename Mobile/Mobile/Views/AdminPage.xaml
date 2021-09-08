@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="Mobile.Views.AdminPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tableviews="clr-namespace:Mobile.Views.TableViews"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    Title="School Manager"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="{StaticResource HeadBackgroundColor}"
+    IconImageSource="icon.png"
+    SelectedTabColor="{StaticResource AccentColor}"
+    UnselectedTabColor="{StaticResource UnselectedTabColor}">
+    <!--  Pages can be added as references or inline  -->
+    <tableviews:CoursesPage Title="Cursos" IconImageSource="course" />
+    <tableviews:AssignationsPage Title="Asignaciones" IconImageSource="assignation" />
+</TabbedPage>

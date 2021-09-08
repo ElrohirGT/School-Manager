@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mobile.Views.TeacherPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Mobile.Controls"
+    xmlns:model="clr-namespace:Mobile.Models"
+    Title="School Manager"
+    IconImageSource="icon_white">
+    <!--  Pages can be added as references or inline  -->
+    <controls:PageWithIndicators IsBusy="{Binding IsBusy}" IsLoading="{Binding IsLoading}">
+        <controls:PageWithIndicators.ChildContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    FontSize="Title"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Curso: "
+                    VerticalOptions="Fill"
+                    VerticalTextAlignment="Center" />
+                <Picker
+                    Grid.Column="1"
+                    ItemDisplayBinding="{Binding NombreCompleto}"
+                    ItemsSource="{Binding PickerItems}"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                <BoxView
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="{StaticResource AccentColor}" />
+                <CollectionView
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    ItemsSource="{Binding CollectionItems}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:AssignationModel">
+                            <StackLayout Padding="8">
+                                <Label
+                                    FontSize="Title"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Estudiante.Nombre}" />
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Encargado: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding Estudiante.Encargado}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Cumpleaños: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding Estudiante.FechaDeNacimiento, StringFormat='{0:dd} de {0:MMMM}'}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    HorizontalOptions="Fill"
+                                    Text="Calificaciones"
+                                    TextColor="{StaticResource AccentColor}" />
+                                <Label HorizontalOptions="Fill">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="IU: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIU}" />
+                                                <Span Text=", " />
+                                                <Span Text="IIU: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIIU}" />
+                                                <Span Text=", " />
+                                                <Span Text="IIIU: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIIIU}" />
+                                                <Span Text=", " />
+                                                <Span Text="IVU: " TextColor="{StaticResource AccentColor}" />
+                                                <Span Text="{Binding NotaIVU}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <BoxView BackgroundColor="{StaticResource AccentColor}" HeightRequest="1" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </controls:PageWithIndicators.ChildContent>
+    </controls:PageWithIndicators>
+</ContentPage>
