@@ -57,6 +57,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F4AF3DCAED8E400499DC1085B5BDBA12"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_895EFE8A1DBA46989E7DE08F0B90E980"
         "MsmSig" = "8:_UNDEFINED"
@@ -307,6 +313,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4AF3DCAED8E400499DC1085B5BDBA12"
+            {
+            "SourcePath" = "8:..\\Model\\SchoolManagerDB_log.ldf"
+            "TargetName" = "8:SchoolManagerDB_log.ldf"
+            "Tag" = "8:"
+            "Folder" = "8:_C94054D3B21348BFBD42E6705F303429"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -375,7 +401,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:School Manager"
         "ProductCode" = "8:{C9F35270-423B-4163-A455-11B015193105}"
-        "PackageCode" = "8:{4F7A40B2-6FA1-44B3-93C6-1AA82C1667FF}"
+        "PackageCode" = "8:{80D42218-8C94-46B6-A6B2-AE0B09C0F711}"
         "UpgradeCode" = "8:{E3B34DFF-AB5F-4B6B-BE0C-A08FB6000F6C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
