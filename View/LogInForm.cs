@@ -42,7 +42,12 @@ namespace School_Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(this, "Usuario o contraseña incorrecta!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string text = "Usuario o contraseña incorrecta!";
+                #if DEBUG
+                    text += $"\n{err}";
+                #endif
+
+                MessageBox.Show(this, text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
